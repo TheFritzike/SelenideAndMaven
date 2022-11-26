@@ -11,6 +11,9 @@ public class SwagLabs {
         //variables
         SelenideElement userInput = $(By.id("user-name"));
         SelenideElement passInput = $(By.id("password"));
+        SelenideElement fleeceJacket = $(By.className("inventory_item_name"));
+        SelenideElement addToCartJacket = $("#add-to-cart-sauce-labs-fleece-jacket");
+        SelenideElement shoppingCart = $(".shopping_cart_link");
 
         //open page verify title
         open("https://www.saucedemo.com/");
@@ -21,6 +24,12 @@ public class SwagLabs {
         userInput.val("standard_user");
         passInput.clear();
         passInput.val("secret_sauce").pressEnter();
-        sleep(2000);
+        sleep(1000);
+
+        //Product page nad Cart
+        if(fleeceJacket.has(text("Sauce Labs Fleece Jacket"))) fleeceJacket.click();
+        addToCartJacket.click();
+        shoppingCart.click();
+        sleep(1000);
     }
 }
