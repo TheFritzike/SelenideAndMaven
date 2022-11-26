@@ -11,7 +11,7 @@ public class SwagLabs {
         //variables
         SelenideElement userInput = $(By.id("user-name"));
         SelenideElement passInput = $(By.id("password"));
-        SelenideElement fleeceJacket = $(By.className("inventory_item_name"));
+        SelenideElement itemName = $(By.className("inventory_item_name"));
         SelenideElement addToCartJacket = $("#add-to-cart-sauce-labs-fleece-jacket");
         SelenideElement shoppingCart = $(".shopping_cart_link");
 
@@ -26,9 +26,9 @@ public class SwagLabs {
         passInput.val("secret_sauce").pressEnter();
         sleep(1000);
 
-        //Product page nad Cart
-        if(fleeceJacket.has(text("Sauce Labs Fleece Jacket"))) fleeceJacket.click();
-        addToCartJacket.click();
+        //Product page and Cart
+        if(itemName.has(text("Sauce Labs Fleece Jacket")))
+            addToCartJacket.click();
         shoppingCart.click();
         sleep(1000);
     }
